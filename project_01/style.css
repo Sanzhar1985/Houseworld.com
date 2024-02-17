@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* тексттын шрифтарын арналган ссылка */
+*{
+    margin: 0; /* используемые для управления внешним и внутренним пространством элементов соответственно */
+    padding: 0; /* используемые для управления внешним и внутренним пространством элементов соответственно */
+    box-sizing: border-box; /* которое определяет,как должен расчитываться размер элемента,включая его границы и заполнение (padding). */
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    line-height: 1.6; /* высота строки будет 1.6 * 16px = 25.6px */
+}
+
+
+h2 {
+    font-size: 20px; /* размер текста  Сурет іздеу приложениясы */
+    font-weight: bold; /* шрифт станет более жирным */
+    text-align: left; /* текст будеть стоять в центре */
+    margin: 40px 0 60px 100px; /* үстінен 40px астынан 60px оң жағынан 0px сол жағынан 0px бос орын қалдыру */
+    color: #ffffff;
+}
+
+
+h1 {
+    font-size: 50px; /* размер текста  Сурет іздеу приложениясы */
+    font-weight: bold; /* шрифт станет более жирным */
+    text-align: center; /* текст будеть стоять в центре */
+    margin: 40px 0 30px 0; /* үстінен 40px астынан 60px оң жағынан 0px сол жағынан 0px бос орын қалдыру */
+}
+
+
+form {
+    display: flex; /* flex-Бұл пішін элементін икемді орналасуы бар контейнерге айналдырады */
+    justify-content: center; /* вправо или влево или в центре , решать только по горизонтально (элементты орналастыруға form дағы) */
+    align-items: center; /* сверху или вниз или в центре , решать только по вертикальным  (элемента) */
+    margin-bottom: 60px; /*Астынан 60px қалдырады */
+}
+
+#search-input { /* id: Указывается в CSS с использованием #, например, #myId или #search-input и т.д { ... }. */
+    width: 60%; /*  ені=60  корчканын который сурет іздеутін */
+    max-width: 450px; /* максимально 200px ге дейін барады экраннын 60% */
+    padding: 15px 25px; /* 10px for top(верхний) and bottom(нижнее) , левой и правой сторону каждому и 20px */
+    border: none; /* рамка - border , none - не нужна (без рамка)*/
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3); /* көлеңке қалдыру айналасына */
+    border-radius: 40px; /* рамканын бурышарын дөңгелекдеу қылу үшін 4 бұрышына ортақ радиус 5px*/
+    font-size: 18px; /* размер шрифта которого мы напишем в поиске */
+    color: #333; /* цвет шрифта */
+}
+
+#search-button {
+    padding: 15px 25px;
+    background-color: #138065; /* заменять цвета заднего фона */
+    color: #fff; /* текст түсі аққа айналады мысалы бізде Іздеу деген сөз */
+    border: none; /* рамка:жок*/
+    font-size: 18px; /* размер шрифта іздеу деген сөздің размеры */
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3); /* көлеңке қалдыру айналасына*/
+    cursor: pointer; /* мышканы апарганда ауысып кету мысалы колдын суретіне */
+    border-radius: 40px; /* рамканын бурышарын дөңгелекдеу қылу үшін 4 бұрышына ортақ радиус 5px*/
+    margin-left: 10px; /* екі корчканы арасына 10px қалдыру */
+}
+
+.search-results { /* class болғандықтан оған . арқылы обращаться*/
+    display:flex; /*  онай қозғалып икемділігін айтады  */
+    justify-content: space-between; /* вправо или влево или в центре , решать только по горизонтально суреттердің орналасыруға */
+    flex-wrap: wrap; /* суреттердің біз салатын солардың бір қатарға сыйуына жауап береді */
+    max-width: 1200px; /*  максимальный длина */
+    margin: 0 auto; /* үстінгі и астынғы ара қашықтық 0px, оң және сол ара қашықтық автоматты wrap, space-between осылар аркылы */
+    padding: 10px; /* астына үстіне оңға солға 20px қалдыру бос прастранста  */
+}
+
+.search-result {
+    margin-bottom: 60px; /* астынан 60px қалдыру*/
+    width: 30%; /* енін 30% қысқартады мысалы ені 100px болса сонын 30% не диін қысқарту  */
+    height: 100%; /* биіктігін қалай бар солай қалдыра бер 100px болса 100px боп қалады  */
+    border-radius: 5px; /* бұрыстарын тік емес шамалы угольный қылып жасайды тік бұрышты болмайды */
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2); /* көлеңке */
+    overflow: hidden; /* осы жазылмаса сурет өзгермиді ал жазса өзгереді */
+}
+
+.search-result img {
+    width: 100%; /* ені 100% болып қала береді өзгертпейді */
+    height: 400px; /* биіктігінде өзгертпейді 100% қалай бар солай қалады cуреттің */
+    object-fit: cover; /* */
+    transition: opacity 0.2s ease-in-out; /* суретке барғанда ол шамалы плавны мишканын қозғалуына жауап береді және туманныға  */
+}
+
+.search-result:hover img{ /* осыны қоспаса үстідегі transition: істемейді  */
+    opacity: 0.8; /* 80% суретті қалдырып 20% туманны қыл деп жатырмыз */
+}
+
+.search-result a {
+    font-size: 20px; /* 20px үлкейеді */
+    text-decoration: none; /* текстке ештене артық қойма дит просто сөздің өзі болсын дит */
+    color: #ffffff; /* түсін өзгерті ( жанындағыдай осы жердегі) */
+    display: block; /*  */
+    padding: 20px; /* төрт жағынанда 10px орын қалдырып кет */
+    text-transform: capitalize; /* capitalize-сөздің бас әріппен жазылуын қарайды */
+}
+
+.search-result_1 {
+    margin-bottom: 60px; /* астынан 60px қалдыру*/
+    width: 30%; /* енін 30% қысқартады мысалы ені 100px болса сонын 30% не диін қысқарту  */
+    height: 100%; /* биіктігін қалай бар солай қалдыра бер 100px болса 100px боп қалады  */
+    border-radius: 5px; /* бұрыстарын тік емес шамалы угольный қылып жасайды тік бұрышты болмайды */
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2); /* көлеңке */
+    overflow: hidden; /* осы жазылмаса сурет өзгермиді ал жазса өзгереді */
+}
+
+.search-result_1 img {
+    width: 100%; /* ені 100% болып қала береді өзгертпейді */
+    height: 400px; /* биіктігінде өзгертпейді 100% қалай бар солай қалады cуреттің */
+    object-fit: cover; /* */
+    transition: opacity 0.2s ease-in-out; /* суретке барғанда ол шамалы плавны мишканын қозғалуына жауап береді және туманныға  */
+}
+
+.search-result_1:hover img{ /* осыны қоспаса үстідегі transition: істемейді  */
+    opacity: 0.8; /* 80% суретті қалдырып 20% туманны қыл деп жатырмыз */
+}
+
+.search-result_1 a {
+    font-size: 20px; /* 20px үлкейеді */
+    text-decoration: none; /* текстке ештене артық қойма дит просто сөздің өзі болсын дит */
+    color: #ffffff; /* түсін өзгерті ( жанындағыдай осы жердегі) */
+    display: block; /*  */
+    padding: 20px; /* төрт жағынанда 10px орын қалдырып кет */
+    text-transform: capitalize; /* capitalize-сөздің бас әріппен жазылуын қарайды */
+}
+
+.search-result_2 {
+    margin-bottom: 60px; /* астынан 60px қалдыру*/
+    width: 30%; /* енін 30% қысқартады мысалы ені 100px болса сонын 30% не диін қысқарту  */
+    height: 100%; /* биіктігін қалай бар солай қалдыра бер 100px болса 100px боп қалады  */
+    border-radius: 5px; /* бұрыстарын тік емес шамалы угольный қылып жасайды тік бұрышты болмайды */
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2); /* көлеңке */
+    overflow: hidden; /* осы жазылмаса сурет өзгермиді ал жазса өзгереді */
+}
+
+.search-result_2 img {
+    width: 100%; /* ені 100% болып қала береді өзгертпейді */
+    height: 400px; /* биіктігінде өзгертпейді 100% қалай бар солай қалады cуреттің */
+    object-fit: cover; /* */
+    transition: opacity 0.2s ease-in-out; /* суретке барғанда ол шамалы плавны мишканын қозғалуына жауап береді және туманныға  */
+}
+
+.search-result_2:hover img{ /* осыны қоспаса үстідегі transition: істемейді  */
+    opacity: 0.8; /* 80% суретті қалдырып 20% туманны қыл деп жатырмыз */
+}
+
+.search-result_2 a {
+    font-size: 20px; /* 20px үлкейеді */
+    text-decoration: none; /* текстке ештене артық қойма дит просто сөздің өзі болсын дит */
+    color: #ffffff; /* түсін өзгерті ( жанындағыдай осы жердегі) */
+    display: block; /*  */
+    padding: 20px; /* төрт жағынанда 10px орын қалдырып кет */
+    text-transform: capitalize; /* capitalize-сөздің бас әріппен жазылуын қарайды */
+}
+
+.VLAN {
+    padding: 10px 100px;
+}
+
+.tables {
+    padding: 30px 100px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    padding: 20px 40px; /*  отступ */
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.reqis {
+    padding: 0px 550px ;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+    background-color: #fff;
+    padding: 20px ;
+    border-radius: 20px;
+    position: relative;
+}
+
+.title {
+    font-size: 28px;
+    color: royalblue;
+    font-weight: 600;
+    letter-spacing: -1px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.title::before,.title::after {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 0px;
+    background-color: royalblue;
+}
+
+.title::before {
+    width: 18px;
+    height: 18px;
+    background-color: royalblue;
+}
+
+.title::after {
+    width: 18px;
+    height: 18px;
+    animation: pulse 1s linear infinite;
+}
+
+.message, .signin {
+    color: rgba(88, 87, 87, 0.822);
+    font-size: 14px;
+}
+
+.signin {
+    text-align: center;
+}
+
+.signin a {
+    color: royalblue;
+}
+
+.signin a:hover {
+    text-decoration: underline royalblue;
+}
+
+.flex {
+    display: flex;
+    width: 100%;
+    gap: 6px;
+}
+
+.form label {
+    position: relative;
+}
+
+.form label .input {
+    width: 100%;
+    padding: 10px 10px 20px 10px;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    border-radius: 10px;
+}
+
+.form label .input + span {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    color: grey;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+    top: 15px;
+    font-size: 0.9em;
+}
+
+.form label .input:focus + span,.form label .input:valid + span {
+    top: 30px;
+    font-size: 0.7em;
+    font-weight: 600;
+}
+
+.form label .input:valid + span {
+    color: green;
+}
+
+.submit {
+    border: none;
+    outline: none;
+    background-color: royalblue;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.submit:hover {
+    background-color: rgb(56, 90, 194);
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+
+#faq {
+    background-color: #fff;
+    border-top: 2px dashed #e4e3e3;
+    width: 100%;
+    float: left;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+#faq div {
+    width: 25%;
+    margin-left: 6%;
+    float: left;
+}
+
+#faq .title{
+    font-weight: lighter;
+    color: #a3a0ad;
+    margin-bottom: 20px;
+    font-size: 2.2em;
+}
+
+#faq .heading {
+    color: #4a4a4a;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+#faq p {
+    font-family: Arimo, Helvetica, sans-serif;
+    color: #4a4a4a;
+    font-size: 0.95em;
+    margin-bottom: 40px;
+}
+
+
+
+body {
+    background-image: url('https://images.unsplash.com/photo-1500835556837-99ac94a94552?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media screen and(max-width: 768px) {
+    .search-results{
+        padding: 20px;
+    }
+    .search-result{
+        width: 45%;
+    }
+}
+
+@media screen and(max-width: 480px){
+    .search-result{
+        width: 100%;
+    }
+    .search-results{
+        padding: 20px;
+    }
+}
