@@ -121,7 +121,7 @@ form {
     text-decoration: none; /* текстке ештене артық қойма дит просто сөздің өзі болсын дит */
     color: #ffffff; /* түсін өзгерті ( жанындағыдай осы жердегі) */
     display: block; /*  */
-    padding: 20px; /* төрт жағынанда 10px орын қалдырып кет */
+    padding: 20px; /* төрт жағынанда 10px орын қалдырып кетттту */
     text-transform: capitalize; /* capitalize-сөздің бас әріппен жазылуын қарайды */
 }
 
@@ -227,7 +227,7 @@ th {
 }
 
 .message, .signin {
-    color: rgba(88, 87, 87, 0.822);
+    color: rgba(888, 87, 87, 0.822);
     font-size: 14px;
 }
 
